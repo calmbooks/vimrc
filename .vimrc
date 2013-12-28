@@ -22,7 +22,7 @@ endif
 	NeoBundle 'nathanaelkane/vim-indent-guides'
 	NeoBundle 'AtsushiM/css-skelton.vim'
 	NeoBundle 'AtsushiM/RetinaResize'
-	NeoBundle 'leafgarland/typescript-vim'
+	" NeoBundle 'leafgarland/typescript-vim'
 	
 
 	NeoBundle 'ujihisa/unite-colorscheme'
@@ -59,9 +59,18 @@ let g:indent_guides_enable_on_vim_startup=1
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=gray
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgray
 
+" dictionary settings
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'javascript' : $HOME . '/.vim/dict/javascript.dict',
+    \ 'coffee' : $HOME . '/.vim/dict/javascript.dict',
+    \ 'cs' : $HOME . '/.vim/dict/unity.dict'
+    \ }
+
 " filetype 設定
 augroup filetypedetect
   au BufRead,BufNewFile *.scss set filetype=css
+  au BufRead,BufNewFile *.ts set filetype=javascript
 augroup END
 
 "tab settings.
@@ -77,6 +86,8 @@ augroup MyXML
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
+
+
 
 
 "set
